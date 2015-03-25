@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>IFRE-登录</title>
+<link rel="shortcut icon" href="img/web_logo.png" type="image/x-icon">
+<link rel="apple-touch-icon" href="img/web_logo.png">
+<link type="text/css" rel="stylesheet" href="js/bootstrap-3.3.2/css/bootstrap.min.css" />
+</head>
+<style type="text/css">
+    .navbar-inverse {
+        background: #3b5998;
+    }
+
+    .navbar {
+        min-height: inherit;
+    }
+
+    .nav a {
+        color: #fefefe;
+        font-weight: bolder;
+    }
+
+    .nav li a:hover {
+        background: none;
+    }
+</style>
+<body>
+<div class="container-fluid">
+	<div class="row">
+	<div class="col-md-3"></div>
+	<div class="col-md-3">
+		<a href="index.html">
+			<img src="img/logo.png" height="52px">
+		</a>
+	</div >
+	<div class="col-md-3 header-top" style="text-align:right;">
+		<div style="padding:10px 0;">
+		    <a href="login.html" class="btn btn-warning">登录</a>
+		    <a href="register.html" class="btn btn-info">注册</a>
+		</div>
+	</div>
+	<div class="col-md-3"></div>
+</div>
+
+<div class="row">
+	<div class="col-md-12 navbar navbar-inverse">
+		<div class="container-fluid">
+			<div class="col-md-3"></div>
+			<div class="col-md-6" id="">
+				<ul id="action" class="nav nav-pills" role="tablist">
+					<li id="index" role="presentation"><a href="index.html" onclick="click('index')">首页</a></li>
+					<li role="presentation"><a href="hello.html">评分</a></li>
+					<li role="presentation"><a href="history.html">提交历史</a></li>
+					<li role="presentation"><a href="record.html">评分记录</a></li>			
+				</ul>
+			</div>
+			<div class="col-md-3"></div>
+		</div>
+	</div>
+</div>
+	
+	<div class="row">
+		<div class="col-md-3"></div>
+		<div class="col-md-6">
+            <form action="msg.html">
+                <div class="form-group">
+                    <label for="name">账号:</label>
+                    <input class="form-control" id="name" name="name"/>
+                </div>
+                <div class="form-group">
+                    <label for="pwd">密码:</label>
+                    <input class="form-control" type="password" id="pwd" name="pwd"/>
+                </div>
+                <input class="btn btn-primary" type="submit" id="mylogin" value="登录"/>
+                <a href="register.html" class="btn btn-link">点此注册</a>
+            </form>
+		</div>
+		<div class="col-md-3"></div>
+	</div>
+</div>	
+
+</body>
+<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="js/bootstrap-3.3.2/js/bootstrap.min.js"></script>
+</html>

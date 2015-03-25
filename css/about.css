@@ -1,0 +1,24 @@
+
+#company,#team,#contact{
+	padding-top: 129px;
+}
+#team,#contact{
+	margin-top: -103px;
+}
+#tro div{
+	text-align: center;
+	color: #FEFEFE;
+}
+.nav-self li{
+	float: left;
+	display: inline;
+	width: 25%;
+	padding-top: 20px;
+}
+.format-1{
+	font-size: 14px;
+	font-weight: 100;
+	line-height: 2;
+	text-indent: 38px;
+	padding: 10px 0;
+}

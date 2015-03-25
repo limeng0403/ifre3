@@ -1,0 +1,193 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>注册</title>
+<link rel="shortcut icon" href="img/web_logo.png" type="image/x-icon">
+<link rel="apple-touch-icon" href="img/web_logo.png">
+<link type="text/css" rel="stylesheet" href="js/bootstrap-3.3.2/css/bootstrap.min.css" />
+</head>
+<style type="text/css">
+   .navbar-inverse {
+        background: #3b5998;
+    }
+
+    .navbar {
+        min-height: inherit;
+    }
+
+    .error {
+        color: #ff0505;
+        font-weight: bolder;
+    }
+
+    .nav a {
+        color: #fefefe;
+        font-weight: bolder;
+    }
+
+    .nav li a:hover {
+        background: none;
+    }
+</style>
+<body>
+<div class="container-fluid">
+	<div class="row">
+	<div class="col-md-3"></div>
+	<div class="col-md-3">
+		<a href="index.html">
+			<img src="img/logo.png" height="52px">
+		</a>
+	</div >
+	<div class="col-md-3 header-top" style="text-align:right;">
+		<div style="padding:10px 0;">
+		    <a href="login.html" class="btn btn-warning">登录</a>
+		    <a href="register.html" class="btn btn-info">注册</a>
+		</div>
+	</div>
+	<div class="col-md-3"></div>
+</div>
+
+<div class="row">
+	<div class="col-md-12 navbar navbar-inverse">
+		<div class="container-fluid">
+			<div class="col-md-3"></div>
+			<div class="col-md-6" id="">
+				<ul id="action" class="nav nav-pills" role="tablist">
+					<li id="index" role="presentation"><a href="index.html" onclick="click('index')">首页</a></li>
+					<li role="presentation"><a href="hello.html">评分</a></li>
+					<li role="presentation" class="active"><a href="history.html">提交历史</a></li>
+					<li role="presentation"><a href="record.html">评分记录</a></li>			
+				</ul>
+			</div>
+			<div class="col-md-3"></div>
+		</div>
+	</div>
+</div>
+	
+	<div class="row">
+		<div class="col-md-3"></div>
+		<div class="col-md-6">
+            <form id="form1" method="post" action="">
+                 <div class="form-group">
+                     <label for="name">昵称:</label>
+                     <input class="form-control" id="name" name="name"/>
+                 </div>
+                 <!--  
+                 <div class="form-group">
+                     <label for="phone">手机号:</label>
+                     <input class="form-control" id="phone" name="phone"/>
+                     <a id="sendSms" href="javascript:sendVCode()" class="btn btn-link">获取验证码</a>
+                 </div>
+                 
+                 <div class="form-group">
+                     <label for="validate">验证码：</label>
+                     <input class="form-control" id="validate" name="validate"/>
+                 </div>
+                 -->
+                 <div class="form-group">
+                     <label for="pwd">密码：</label>
+                     <input class="form-control" type="password" id="pwd" name="pwd"/>
+                 </div>
+                 <div class="form-group">
+                     <label for="pwdSure">确认密码：</label>
+                     <input class="form-control" type="password" id="pwdSure" name="pwdSure"/>
+                 </div>
+                 <div class="form-group">
+    			 	<label for="file">上传公司证明(个人站在公司logo前的图片):</label>
+    				<input type="file" id="file">
+  				 </div>
+                 <input class="btn btn-primary" type="submit" value="提交注册信息"/>
+             </form>
+		</div>
+		<div class="col-md-3"></div>
+	</div>
+</div>
+</body>
+<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="js/bootstrap-3.3.2/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/jquery.validate.min.js"></script>
+<script type="text/javascript">
+$("#form1").validate({
+	rules: {
+        name: {
+            required: true,
+            minlength: 2
+        },
+        phone: {
+            required: true,
+            number: true,
+            minlength: 11
+        },
+        pwd: {
+            required: true,
+            minlength: 8
+        },
+        pwdSure: {
+            required: true,
+            minlength: 8,
+            equalTo: "#pwd"
+        },
+        validate: {
+            required: true
+        }
+    },
+    messages: {
+        name: 'required',
+        phone: 'required',
+        pwd: 'required',
+        pwdSure: 'required',
+        name: {
+            required: "*请输入昵称",
+            minlength: "*昵称至少2个字符"
+        },
+        phone: {
+            required: "*请输入手机号",
+            number: '*手机号必须为数字',
+            minlength: "*电话号码至少11位"
+        },
+        pwd: {
+            required: "*请输入密码",
+            minlength: "*密码长度至少8位"
+        },
+        pwdSure: {
+            required: "*请输入重复密码",
+            minlength: "*密码长度至少8位",
+            equalTo: "*两次密码输入不符"
+        },
+        validate: "*请输入验证码"
+    }
+});
+
+function sendVCode() {
+    phone = $('#phone').val();
+    if ($.trim(phone) == '') {
+        alert('请输入手机号');
+        return false;
+    }
+    $.post('#', {
+        phone: phone
+    }, function (content) {
+        var json = eval('json=' + content);
+
+        if (json.status == 1) {
+            var time = 60;
+            var t = setInterval(function () {
+                time--;
+                btn = $('#sendSms');
+                if (time == 0) {
+                    btn.text('获取验证码');
+                    btn.attr('href', 'javascript:sendVCode()');
+                    clearInterval(t);
+                } else {
+                    btn.attr('href', 'javascript:void(0)');
+                    btn.text(time + '秒内未接到短信，请尝试重新发送');
+                }
+            }, 1000);
+        }else{
+            alert(json.info);
+        }
+    });
+}
+</script>
+</html>

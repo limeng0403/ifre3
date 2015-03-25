@@ -1,0 +1,1036 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>IFRE</title>
+<link rel="shortcut icon" href="img/web_logo.png" type="image/x-icon">
+<link rel="apple-touch-icon" href="img/web_logo.png">
+<link type="text/css" rel="stylesheet" href="js/bootstrap-3.3.2/css/bootstrap.min.css" />
+</head>
+<style type="text/css">
+    .navbar-inverse {
+        background: #3b5998;
+    }
+
+    .navbar {
+        min-height: inherit;
+    }
+    
+    .error {
+        color: #ff0505;
+        font-weight: bolder;
+    }
+
+    .nav a {
+        color: #fefefe;
+        font-weight: bolder;
+    }
+
+    .nav li a:hover {
+        background: none;
+    }
+    .thumbnail{
+        text-align:center;
+    }
+    .thumbnail img{
+        display:inline-block;
+        height:41px;
+        width: auto;
+    }
+</style>
+<body>
+<div class="container-fluid">
+	<div class="row">
+	<div class="col-md-3"></div>
+	<div class="col-md-3">
+		<a href="index.html">
+			<img src="img/logo.png" height="52px">
+		</a>
+	</div >
+	<div class="col-md-3 header-top" style="text-align:right;">
+		<div style="padding:10px 0;">
+		    <a href="login.html" class="btn btn-warning">登录</a>
+		    <a href="register.html" class="btn btn-info">注册</a>
+		</div>
+	</div>
+	<div class="col-md-3"></div>
+</div>
+
+<div class="row">
+	<div class="col-md-12 navbar navbar-inverse">
+		<div class="container-fluid">
+			<div class="col-md-3"></div>
+			<div class="col-md-6" id="">
+				<ul id="action" class="nav nav-pills" role="tablist">
+					<li id="index" role="presentation"><a href="index.html" onclick="click('index')">首页</a></li>
+					<li role="presentation" class="active"><a href="hello.html">评分</a></li>
+					<li role="presentation"><a href="history.html">提交历史</a></li>
+					<li role="presentation"><a href="record.html">评分记录</a></li>			
+				</ul>
+			</div>
+			<div class="col-md-3"></div>
+		</div>
+	</div>
+</div>
+	
+	<div class="row">
+		<div class="col-md-3"></div>
+		<div class="col-md-6">
+			<form id="form1" class="form-horizontal" role="form" action="score.html">
+				<div class="form-group">
+                    <label for="real_name" class="col-sm-2 control-label">名字</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" id="real_name" name="real_name">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="iden_card" class="col-sm-2 control-label">身份证号码</label>
+                   	<div class="col-sm-6">
+                        <input type="text" class="form-control" id="iden_card">
+                	</div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="sex" class="col-sm-2 control-label">性别</label>
+                    <div class="radio col-sm-2">
+                        <label>
+                            <input type="radio" name="sex" id="sex1" value="1">男
+                        </label>
+                    </div>
+                    <div class="radio col-sm-2">
+                        <label>
+                            <input type="radio" name="sex" id="sex2" value="2">女
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">出生年月</label>
+                    <div class="col-sm-2">
+                        <select class="form-control input-sm" id="year_born_year" name="year_born_year" onfocus="years('year_born_year',new Date().getFullYear()),change_date('year_born_year','year_born_month')" onchange="change_date('year_born_year','year_born_month')">
+                        	<option>--年份--</option>
+                        </select>
+                    </div>
+                    <div class="col-sm-2">
+                        <select class="form-control input-sm" id="year_born_month" name="year_born_month" onfocus="months('year_born_month'),change_date('year_born_year','year_born_month')" onchange="change_date('year_born_year','year_born_month')">
+                        	<option>--月份--</option>
+                        </select>
+                    </div>
+                </div>
+           
+           		<div class="form-group" style="margin-bottom: 0">
+                    <label class="col-sm-2 control-label">户籍所在地</label>
+                    <div class="col-sm-2">
+                        <select class="form-control  input-sm" id="house_hold_province" name="house_hold_province"></select>
+                    </div>
+                    <div class="col-sm-2">
+                        <select class="form-control  input-sm" id="house_hold_city" name="house_hold_city" ></select>
+                    </div>   
+                    <script type="text/javascript" class="resources library" src="js/area.js" ></script>      
+                    <script type="text/javascript">_init_area("house_hold_province","house_hold_city",1);</script>
+                </div><br />
+                
+                <div class="form-group" style="margin-bottom: 0">
+                    <label class="col-sm-2 control-label">教育程度</label>
+                    <div class="col-sm-6 btn-group">
+                    	<select class="form-control">
+                    		<option>--选择教育程度--</option>
+							<option>技校/中专/高中及以下</option>
+						  	<option>大专</option>
+							<option>本科</option>
+						    <option>硕士及以上</option>
+						</select>
+                    </div><br /><br />
+                </div>
+                
+                <div class="form-group">
+                    <label for="marriage" class="col-sm-2 control-label">婚姻状态</label>
+                    <div class="radio col-sm-2">
+                        <label>
+                            <input type="radio" name="marriage" id="marriage1" value="1">未婚
+                        </label>
+                    </div>
+                    <div class="radio col-sm-2">
+                        <label>
+                            <input type="radio" name="marriage" id="marriage2" value="2">已婚
+                        </label>
+                    </div>
+                    <div class="radio col-sm-2">
+                        <label>
+                            <input type="radio" name="marriage" id="marriage3" value="3">离异/丧偶/其他
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="children" class="col-sm-2 control-label">子女状态</label>
+                    <div class="radio col-sm-2">
+                        <label>
+                            <input type="radio" name="children" id="children1" value="1">无子女
+                        </label>
+                    </div>
+                    <div class="radio col-sm-2">
+                        <label>
+                            <input type="radio" name="children" id="children2" value="2">有子女
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="local_live" class="col-sm-2 control-label">本地居住时间</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" id="local_live" name="local_live" placeholder="单位年，如5">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="is_work" class="col-sm-2 control-label">职业</label>
+                    <div class="radio col-sm-2">
+                        <label>
+                            <input type="radio" name="is_work" id="is_work1" value="1" onclick="isWork(1)">企业主
+                        </label>
+                    </div>
+                    <div class="radio col-sm-2">
+                        <label>
+                            <input type="radio" name="is_work" id="is_work2" value="2" onclick="isWork(2)">上班族
+                        </label>
+                    </div>
+                    <div class="radio col-sm-2">
+                        <label>
+                            <input type="radio" name="is_work" id="is_work3" value="2" onclick="isWork(3)">其他
+                        </label>
+                    </div>
+                </div>
+                
+                <div id="work_div" style="display: none;background-color: #eee" >
+                	<br />
+	                <div class="form-group" style="margin-bottom: 0">
+	                    <label class="col-sm-3 control-label">工作城市</label>
+	                    <div class="col-sm-2">
+	                        <select class="form-control  input-sm" id="work_province" name="work_province"></select>
+	                    </div>
+	                    <div class="col-sm-2">
+	                        <select class="form-control  input-sm" id="work_city" name="work_city" ></select>
+	                    </div>
+	                    <script type="text/javascript">_init_area("work_province","work_city",2);</script>
+	                </div><br />
+	                
+	                <div class="form-group">
+	                    <label class="col-sm-3 control-label">现单位入职时间</label>
+	                    <div class="col-sm-2">
+	                        <select class="form-control  input-sm" id="current_onboard_year" name="current_onboard_year" onfocus="years('current_onboard_year',new Date().getFullYear()),change_date('current_onboard_year','current_onboard_month')" onchange="change_date('current_onboard_year','current_onboard_month')">
+	                     		<option>--年份--</option>
+	                        </select>
+	                    </div>
+	                    <div class="col-sm-2">
+	                        <select class="form-control  input-sm" id="current_onboard_month" name="current_onboard_month" onfocus="months('current_onboard_month'),change_date('current_onboard_year','current_onboard_month')" onchange="change_date('current_onboard_year','current_onboard_month')">
+	                        	<option>--月份--</option>
+	                        </select>
+	                    </div>
+	                </div> 
+	                
+	                <div class="form-group">
+	                    <label class="col-sm-3 control-label">首次工作时间</label>
+	                    <div class="col-sm-2">
+	                        <select class="form-control  input-sm" id="first_work_year" name="first_work_year" onfocus="years('first_work_year',new Date().getFullYear()),change_date('first_work_year','first_work_month')" onchange="change_date('first_work_year','first_work_month')">
+	                        	<option>--年份--</option>
+	                        </select>
+	                    </div>
+	                    <div class="col-sm-2">
+	                        <select class="form-control  input-sm" id="first_work_month" name="first_work_month" onfocus="months('first_work_month'),change_date('first_work_year','first_work_month')" onchange="change_date('first_work_year','first_work_month')">
+	                        	<option>--月份--</option>
+	                        </select>
+	                    </div>
+	                </div> 
+
+	                
+	                <div class="form-group" style="margin-bottom: 0">
+	                    <label class="col-sm-3 control-label">工作单位类型</label>
+	                    <div class="col-sm-6 btn-group">
+		                    <select class="form-control">
+		                    	<option>--选择公司类型--</option>
+								<option>政府机构/事业单位</option>
+								<option>国企央企</option>
+							  	<option>三资企业(台资/港资/外资)</option>
+								<option>内资上市</option>
+							    <option>内资非上市(民营/私营/普通)</option>
+							    <option>个体工商户</option>
+							    <option>其他</option>
+							</select>
+	                    </div>
+	                </div><br />
+                    
+	                <div class="form-group">
+	                    <label for="salary_type" class="col-sm-3 control-label">工资发放类型</label>
+	                    <div class="radio col-sm-3">
+	                        <label>
+	                            <input type="radio" name="salary_type" id="salary_type" value="1">每月打卡/转账工资
+	                        </label>
+	                    </div>
+	                    <div class="radio col-sm-2">
+	                        <label>
+	                            <input type="radio" name="salary_type" id="salary_type" value="2">现金工资
+	                        </label>
+	                    </div>
+	                    <div class="radio col-sm-3">
+	                        <label>
+	                            <input type="radio" name="salary_type" id="salary_type" value="3">部分打卡部分现金
+	                        </label>
+	                    </div><br /><br />
+	                </div>
+                    
+                    <div class="form-group">
+	                    <label for="salary" class="col-sm-3 control-label">实际到手工资</label>
+	                    <div class="col-sm-6">
+	                        <input type="text" class="form-control" id="salary" placeholder="单位元，如  3000">
+	                    </div>
+	                </div>
+                    
+                    <div class="form-group">
+	                    <label for="salary_water_duration" class="col-sm-3 control-label">可提供工资流水时长</label>
+	                    <div class="col-sm-6 btn-group">
+	                        <select class="form-control" id="salary_water_duration">
+	                   	   		<option>--选择流水时长--</option>
+								<option>无</option>
+								<option>1-6个月</option>
+							  	<option>6-12月</option>
+							  	<option>12-24月</option>
+							  	<option>24-48月</option>
+							  	<option>48个月以上</option>
+							</select>
+	                    </div><br /><br />
+	                </div>
+                
+                </div>
+                
+                <div id="company_div" style="display: none;background-color: #eee" >
+                	<br />
+                    <div class="form-group" style="margin-bottom: 0">
+	                    <label class="col-sm-3 control-label">工作单位类型</label>
+	                    <div class="col-sm-6 btn-group">
+		                    <select class="form-control">
+		                    	<option>--选择公司类型--</option>
+							    <option>民营/私营/普通</option>
+							    <option>个体工商户</option>
+							    <option>其他</option>
+							</select>
+	                    </div>
+	                </div>
+                    
+                    <div class="form-group">
+                    <label for="role" class="col-sm-3 control-label">公司所处角色</label>
+                    <div class="radio col-sm-2">
+                        <label>
+                            <input type="radio" name="role" id="role" value="1">法人
+                        </label>
+                    </div>
+                    <div class="radio col-sm-2">
+                        <label>
+                            <input type="radio" name="role" id="role" value="2">股东
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="business_lience" class="col-sm-3 control-label">公司营业执照</label>
+                    <div class="radio col-sm-2">
+                        <label>
+                            <input type="radio" name="business_lience" id="business_lience" value="1">有执照
+                        </label>
+                    </div>
+                    <div class="radio col-sm-2">
+                        <label>
+                            <input type="radio" name="business_lience" id="business_lience" value="2">无执照
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">公司注册时间</label>
+                    <div class="col-sm-2">
+                        <select class="form-control  input-sm" id="regist_year" name="regist_year" onfocus="years('regist_year',new Date().getFullYear()),change_date('regist_year','regist_month')" onchange="change_date('regist_year','regist_month')">
+                        	<option>--年份--</option>
+                        </select>
+                    </div>
+                    <div class="col-sm-2">
+                        <select class="form-control  input-sm" id="regist_month" name="regist_month" onfocus="months('regist_month'),change_date('regist_year','regist_month')" onchange="change_date('regist_year','regist_month')">
+                        	<option>--月份--</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-group" style="margin-bottom: 0">
+                    <label class="col-sm-3 control-label">公司经营所在城市</label>
+                    <div class="col-sm-2">
+                        <select class="form-control  input-sm" id="company_province" name="company_province"></select>
+                    </div>
+                    <div class="col-sm-2">
+                        <select class="form-control  input-sm" id="company_city" name="company_city" ></select>
+                    </div>         
+                    <script type="text/javascript">_init_area("company_province","company_city",3);</script>
+                </div><br />
+                
+                <div class="form-group">
+                    <label for="company_size" class="col-sm-3 control-label">公司规模</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" id="company_size" placeholder="请填写具体人数，如  6">
+                    </div>
+                </div> 
+                
+                <div class="form-group">
+                    <label for="monthly_public_liquid" class="col-sm-3 control-label">公司月均对公流水</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" id="monthly_public_liquid" placeholder="单位万元，如  200">
+                    </div>
+                </div> 
+                
+                <div class="form-group">
+                    <label for="monthly_private_liquid" class="col-sm-3 control-label">公司月均对私流水</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" id="monthly_private_liquid" placeholder="单位万元，如  200">
+                    </div>
+                </div> 
+                
+                <div class="form-group">
+                    <label for="company_asset_value" class="col-sm-3 control-label">公司资产评估价值</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" id="company_asset_value" placeholder="单位万元，如  10">
+                    </div>
+                </div> 
+                
+                <div class="form-group">
+                    <label for="company_asset_value_info" class="col-sm-3 control-label">公司资产抵押情况</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" id="company_asset_value_info" placeholder="自行填写，如 在建行抵押了10万；没有不填">
+                    </div><br /><br />
+                </div> 
+                    
+                </div>
+                
+                <div class="form-group" style="margin-bottom: 0">
+	                    <label class="col-sm-2 control-label">行业</label>
+	                    <div class="col-sm-6 btn-group">
+	                        <select class="form-control" id="industry">
+	                   	   		<option>--选择行业--</option>
+								<option>批发/零售</option>
+								<option>制造业</option>
+							  	<option>金融/保险/证券</option>
+							  	<option>住宿/餐饮/旅游</option>
+							  	<option>商业服务/娱乐/艺术/体育</option>
+							  	<option>计算机/互联网</option>
+							  	<option>通信电子</option>
+							  	<option>建筑</option>
+							  	<option>法律/咨询</option>
+							  	<option>卫生/教育/社会服务</option>
+							  	<option>国家机关/公共事业/社会团体</option>
+							  	<option>生物/制药</option>
+							  	<option>广告/媒体</option>
+							  	<option>能源</option>
+							  	<option>贸易</option>
+							  	<option>交通运输/仓储/邮政</option>
+							  	<option>农/林/牧/渔</option>
+							  	<option>其他</option>
+							</select>
+	                    </div>
+	                </div><br />            
+                
+                
+                
+                <div class="form-group">
+                    <label for="monthly_pay_house" class="col-sm-2 control-label">公司座机</label>
+                   		<div class="col-sm-6">
+                       		<input type="text" class="form-control" id="monthly_pay_house" placeholder="如 010-55555">
+                        </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="ss_fund" class="col-sm-2 control-label">是否有社保</label>
+                    <div class="radio col-sm-2">
+                        <label>
+                            <input type="radio" name="ss_fund" id="ss_fund1" value="1" onclick="ssFund(1)">有社保
+                        </label>
+                    </div>
+                    <div class="radio col-sm-2">
+                        <label>
+                            <input type="radio" name="ss_fund" id="ss_fund2" value="2" onclick="ssFund(2)">无社保
+                        </label>
+                    </div>
+                </div>
+                
+                <div id="ss_fund_div" style="display: none;background-color: #eee" >
+                <br />
+                <div class="form-group">
+	                    <label class="col-sm-3 control-label">首次缴纳社保时间</label>
+	                    <div class="col-sm-2">
+	                        <select class="form-control  input-sm" id="ss_fund_year" name="ss_fund_year" onfocus="years('ss_fund_year',new Date().getFullYear()),change_date('ss_fund_year','ss_fund_month')" onchange="change_date('ss_fund_year','ss_fund_month')">
+	                        	<option>--年份--</option>
+	                        </select>
+	                    </div>
+	                    <div class="col-sm-2">
+	                        <select class="form-control  input-sm" id="ss_fund_month" name="ss_fund_month" onfocus="months('ss_fund_month'),change_date('ss_fund_year','ss_fund_month')" onchange="change_date('ss_fund_year','ss_fund_month')">
+	                        	<option>--月份--</option>
+	                        </select>
+	                    </div><br /><br />
+	                </div>  
+                    
+                 </div>   
+                
+                <div class="form-group">
+                    <label for="credit_card" class="col-sm-2 control-label">有无信用卡</label>
+                    <div class="radio col-sm-2">
+                        <label>
+                            <input type="radio" name="credit_card" id="credit_card1" value="1" onclick="creditCard(1)">有信用卡
+                        </label>
+                    </div>
+                    <div class="radio col-sm-2">
+                        <label>
+                            <input type="radio" name="credit_card" id="credit_card2" value="2" onclick="creditCard(2)">无信用卡
+                        </label>
+                    </div>
+                </div>
+                
+                <div id="card_div" style="display: none;background-color: #eee"> 
+                	<br />               
+	                <div class="form-group">
+	                    <label class="col-sm-3 control-label">首次开卡时间</label>
+	                    <div class="col-sm-2">
+	                        <select class="form-control  input-sm" id="first_card_year" name="first_card_year" onfocus="years('first_card_year',new Date().getFullYear()),change_date('first_card_year','first_card_month')" onchange="change_date('first_card_year','first_card_month')">
+	                     		<option>--年份--</option>
+	                        </select>
+	                    </div>
+	                    <div class="col-sm-2">
+	                        <select class="form-control  input-sm" id="first_card_month" name="first_card_month" onfocus="months('first_card_month'),change_date('first_card_year','first_card_month')" onchange="change_date('first_card_year','first_card_month')">
+	                        	<option>--月份--</option>
+	                        </select>
+	                    </div>
+	                </div>
+	                
+	                <div class="form-group">
+	                    <label class="col-sm-3 control-label">有几家银行信用卡</label>
+	                    <div class="col-sm-6">
+	                        <input type="text" class="form-control" id="credit_card_count" placeholder="请填写具体数字，如 3">
+	                    </div>	                   
+	                </div>
+	                
+	                <div class="form-group">
+	                    <label class="col-sm-3 control-label">单卡最高额度</label>
+	                    <div class="col-sm-6">
+	                        <input type="text" class="form-control" id="single_limit" placeholder="单位元，如 15000">
+	                    </div>
+	                </div>
+	                
+	                <div class="form-group">
+	                    <label class="col-sm-3 control-label">信用卡总额度</label>
+	                    <div class="col-sm-6">
+	                        <input type="text" class="form-control" id="total_limit" placeholder="单位元，如  45600">
+	                    </div>	 
+	                </div>
+	                
+                    <div class="form-group">
+                    <label for="card_debt" class="col-sm-3 control-label">有无信用卡负债</label>
+                    <div class="radio col-sm-2">
+                        <label>
+                            <input type="radio" name="card_debt" id="card_debt1" value="1" onclick="cardDebt(1)">有信用卡负债
+                        </label>
+                    </div>
+                    <div class="radio col-sm-2">
+                        <label>
+                            <input type="radio" name="card_debt" id="card_debt2" value="2" onclick="cardDebt(2)">无信用负债卡
+                        </label>
+                    </div>
+                </div>
+                    
+                    <div id="card_debt_div" style="display: none;background-color: #ddd">
+                        <div class="form-group">
+                            <label class="col-sm-4 control-label">信用卡负债金额</label>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" id="card_debt_count" placeholder="单位元，如  45">
+                            </div>
+                        </div>
+                    </div>
+	                
+	                
+	                <div class="form-group">
+	                    <label class="col-sm-3 control-label">信用卡逾期次数</label>
+	                    <div class="col-sm-6">
+	                        <input type="text" class="form-control" id="card_overdue" placeholder="请填写具体次数，如  3">
+	                    </div>
+	                </div>
+	                
+	                <div class="form-group">
+	                    <label class="col-sm-3 control-label">最长逾期天数</label>
+	                    <div class="col-sm-6">
+	                        <input type="text" class="form-control" id="card_overdue_days" placeholder="请填写具体天数，如  3">
+	                    </div>
+	                    <br />
+	                    <br />
+	                </div>
+                
+                </div> 
+                
+                <div class="form-group">
+                    <label for="is_has_house" class="col-sm-2 control-label">有无房产</label>
+                    <div class="radio col-sm-2">
+                        <label>
+                            <input type="radio" name="is_has_house" id="is_has_house1" value="1" onclick="isHouse(1)">有房产
+                        </label>
+                    </div>
+                    <div class="radio col-sm-2">
+                        <label>
+                            <input type="radio" name="is_has_house" id="is_has_house1" value="2" onclick="isHouse(2)">无房产
+                        </label>
+                    </div>
+                </div>
+                
+                <div id="house_div" style="display: none;background-color: #eee" >
+                	<br />
+	                <div class="form-group" style="margin-bottom: 0" id="work_div5">
+	                    <label class="col-sm-3 control-label">房产类型</label>
+	                    <div class="col-sm-6 btn-group">
+	                   	   <select class="form-control">
+	                   	   		<option>--选择房产类型--</option>
+								<option>商品房</option>
+								<option>宅基地/自建房/小产权房/军产房（不可交易类房产）</option>
+							  	<option>其他房产（商铺/写字楼/厂房等）</option>
+							</select>
+	                    </div>
+	                </div><br />
+	                
+	                <div class="form-group" style="margin-bottom: 0">
+	                    <label class="col-sm-3 control-label">房产归属城市</label>
+	                    <div class="col-sm-2">
+	                        <select class="form-control  input-sm" id="house_where_province" name="house_where_province"></select>
+	                    </div>
+	                    <div class="col-sm-2">
+	                        <select class="form-control  input-sm" id="house_where_city" name="house_where_city" ></select>
+	                    </div>
+	                    <script type="text/javascript">_init_area("house_where_province","house_where_city",4);</script>	                    
+	                </div><br />
+                    
+                    <div class="form-group">
+	                    <label for="house_type_car" class="col-sm-3 control-label">是否有车位</label>
+	                    <div class="radio col-sm-2">
+	                        <label>
+	                            <input type="radio" name="house_type_car" id="house_type_car" value="1">有车位/车库
+	                        </label>
+	                    </div>
+	                    <div class="radio col-sm-2">
+	                        <label>
+	                            <input type="radio" name="house_type_car" id="house_type_car" value="2">无车位/车库
+	                        </label>
+	                    </div>
+	                </div>
+	                
+	                <div class="form-group">
+	                    <label for="is_debt_house" class="col-sm-3 control-label">是否有房贷</label>
+	                    <div class="radio col-sm-2">
+	                        <label>
+	                            <input type="radio" name="is_debt_house" id="is_debt_house1" value="1" onclick="isDebthouse(1)">有房贷
+	                        </label>
+	                    </div>
+	                    <div class="radio col-sm-2">
+	                        <label>
+	                            <input type="radio" name="is_debt_house" id="is_debt_house2" value="2" onclick="isDebthouse(2)">无房贷
+	                        </label>
+	                    </div><br />
+	                </div>
+	                
+	                <div id="house_debt_div" style="display: none;background-color: #ddd">
+	                	<div class="form-group">
+                    		<label for="monthly_pay_house" class="col-sm-4 control-label">房贷月供</label>
+                   			<div class="col-sm-6">
+                       			<input type="text" class="form-control" id="monthly_pay_house" placeholder="单位元，如 900">
+                            </div>
+                		</div> 
+                		
+                		<div class="form-group">
+                        	<label class="col-sm-4 control-label">首次还房贷时间</label>
+                   		    <div class="col-sm-2">
+                        		<select class="form-control  input-sm" id="mortgage_pay_house_year" name="mortgage_pay_house_year" onfocus="years('mortgage_pay_house_year',new Date().getFullYear()),change_date('mortgage_pay_house_year','mortgage_pay_house_month')" onchange="change_date('mortgage_pay_house_year','mortgage_pay_house_month')">
+                        			<option>--年份--</option>
+                        		</select>
+                    		</div>
+                    		<div class="col-sm-2">
+	                        	<select class="form-control  input-sm" id="mortgage_pay_house_month" name="mortgage_pay_house_month" onfocus="months('mortgage_pay_house_month'),change_date('mortgage_pay_house_year','mortgage_pay_house_month')" onchange="change_date('mortgage_pay_house_year','mortgage_pay_house_month')">
+	                        		<option>--月份--</option>
+	                        	</select>
+                   			</div>
+                   			<br />
+                   			<br />
+               		    </div>
+	                </div>    
+                    
+                    <div id="house_mortgage_div" style="display: none;background-color: #ddd">
+                    <div class="form-group">
+	                    <label for="house_mortgage" class="col-sm-4 control-label">房产是否抵押</label>
+	                    <div class="radio col-sm-2">
+	                        <label>
+	                            <input type="radio" name="house_mortgage" id="house_mortgage" value="1" onclick="houseMortgage(1)">已抵押
+	                        </label>
+	                    </div>
+	                    <div class="radio col-sm-2">
+	                        <label>
+	                            <input type="radio" name="house_mortgage" id="house_mortgage" value="2" onclick="houseMortgage(2)">未抵押
+	                        </label>
+	                    </div><br /><br />
+	                </div> 
+                    
+                    <div id="house_mortgage_info_div" style="display: none;background-color: #ccc">
+                        <div class="form-group">
+                            <label for="house_mortgage_info" class="col-sm-5 control-label">房产抵押详情</label>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" id="house_mortgage_info" placeholder="如：抵押50万">
+                            </div>
+                        </div>
+                    </div>
+                    </div>          
+                </div>
+                
+                <div class="form-group">
+                    <label for="is_has_car" class="col-sm-2 control-label">有无车产</label>
+                    <div class="radio col-sm-2">
+                        <label>
+                            <input type="radio" name="is_has_car" id="is_has_car1" value="1" onclick="isHasCar(1)">有车产
+                        </label>
+                    </div>
+                    <div class="radio col-sm-2">
+                        <label>
+                            <input type="radio" name="is_has_car" id="is_has_car2" value="2" onclick="isHasCar(2)">无车产
+                        </label>
+                    </div>
+	            </div>
+	            
+	            <div id="car_div" style="display: none;background-color: #eee">
+	            	<br />
+	            	<div class="form-group">
+                   		<label for="plate_number" class="col-sm-3 control-label">车牌号</label>
+                  		<div class="col-sm-6">
+                      		<input type="text" class="form-control" id="plate_number">
+                        </div>
+                	</div>
+	            
+	            	<div class="form-group">
+	                    <label for="is_debt_car" class="col-sm-3 control-label">是否有车贷</label>
+	                    <div class="radio col-sm-2">
+	                        <label>
+	                            <input type="radio" name="is_debt_car" id="is_debt_car1" value="1" onclick="isDebtCar(1)">有车贷
+	                        </label>
+	                    </div>
+	                    <div class="radio col-sm-2">
+	                        <label>
+	                            <input type="radio" name="is_debt_car" id="is_debt_car2" value="2" onclick="isDebtCar(2)">无车贷
+	                        </label>
+	                    </div><br /><br />
+                    </div>
+                    
+                    <div id="car_debt_div" style="display: none;background-color: #ddd">
+                    	<div class="form-group">
+                    		<label for="monthly_pay_car" class="col-sm-4 control-label">车贷月供</label>
+                   			<div class="col-sm-6">
+                       			<input type="text" class="form-control" id="monthly_pay_car" placeholder="请填写具体数字，单位元，如 800">
+                            </div>
+                		</div> 
+                		
+                		<div class="form-group">
+                        	<label class="col-sm-4 control-label">首次还车贷时间</label>
+                   		    <div class="col-sm-2">
+                        		<select class="form-control  input-sm" id="mortgage_pay_car_year" name="mortgage_pay_car_year" onfocus="years('mortgage_pay_car_year',new Date().getFullYear()),change_date('mortgage_pay_car_year','mortgage_pay_car_month')" onchange="change_date('mortgage_pay_car_year','mortgage_pay_car_month')">
+                        			<option>--年份--</option>
+                        		</select>
+                    		</div>
+                    		<div class="col-sm-2">
+                        		<select class="form-control  input-sm" id="mortgage_pay_car_month" name="mortgage_pay_car_month" onfocus="months('mortgage_pay_car_month'),change_date('mortgage_pay_car_year','mortgage_pay_car_month')" onchange="change_date('mortgage_pay_car_year','mortgage_pay_car_month')">
+                        			<option>--月份--</option>
+                        		</select>
+                   			</div>
+                   			<br />
+                   			<br />
+               		    </div>
+                    </div>	
+                    
+                    <div id="car_mortgage_div" style="display: none;background-color: #ddd">
+                    <div class="form-group">
+	                    <label for="car_mortgage" class="col-sm-4 control-label">车产是否抵押</label>
+	                    <div class="radio col-sm-2">
+	                        <label>
+	                            <input type="radio" name="car_mortgage" id="car_mortgage" value="1" onclick="carMortgage(1)">已抵押
+	                        </label>
+	                    </div>
+	                    <div class="radio col-sm-2">
+	                        <label>
+	                            <input type="radio" name="car_mortgage" id="car_mortgage" value="2" onclick="carMortgage(2)">未抵押
+	                        </label>
+	                    </div><br /><br />
+	                </div> 
+                    
+                    <div id="car_mortgage_info_div" style="display: none;background-color: #ccc">
+                        <div class="form-group">
+                            <label for="car_mortgage_info" class="col-sm-5 control-label">车产抵押详情</label>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" id="car_mortgage_info" placeholder="如：抵押50万">
+                            </div>
+                        </div>
+                    </div>
+                    </div>                
+	            </div>
+	               
+	            <div class="form-group">
+                    <label for="other_debt" class="col-sm-2 control-label">其他负债金额</label>
+                    <div class="col-sm-6">
+                       	<input type="text" class="form-control" id="other_debt" placeholder="指除了信用卡/房贷/车贷/银行类贷款，单位元，如 8000">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="consult_loan" class="col-sm-2 control-label">有无咨询其他机构</label>
+                    <div class="radio col-sm-2">
+                        <label>
+                            <input type="radio" name="consult_loan" id="consult_loan1" value="1" onclick="consultLoan(1)">有
+                        </label>
+                    </div>
+                    <div class="radio col-sm-4">
+                        <label>
+                            <input type="radio" name="consult_loan" id="consult_loan2" value="2" onclick="consultLoan(2)">无
+                        </label>
+                    </div>
+                </div>
+                
+                <div id="consult_loan_div" style="display: none;background-color: #eee">
+                	<div class="form-group">
+	                    <label for="consult_loan_company" class="col-sm-3 control-label">咨询机构名称</label>
+	                    <div class="col-sm-6">
+	                       	<input type="text" class="form-control" id="consult_loan_company" placeholder="如 宜信">
+	                    </div>
+	                </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="has_loan" class="col-sm-2 control-label">有无其他贷款</label>
+                    <div class="radio col-sm-2">
+                        <label>
+                            <input type="radio" name="has_loan" id="has_loan1" value="1" onclick="hasLoan(1)">有
+                        </label>
+                    </div>
+                    <div class="radio col-sm-4">
+                        <label>
+                            <input type="radio" name="has_loan" id="has_loan2" value="2" onclick="hasLoan(2)">无
+                        </label>
+                    </div>
+                    <label class="col-sm-4 control-label" style="color: #1C86EE;text-align:left;">注： 指银行类贷款(非房贷/非车贷)</label>
+                </div>
+                
+                <div id="loan_div" style="display: none;background-color: #eee">
+               		<br />
+	                <div class="form-group">
+	                    <label for="other_loan_money_total" class="col-sm-3 control-label">贷款多少</label>
+	                    <div class="col-sm-6">
+	                       	<input type="text" class="form-control" id="other_loan_money_total" placeholder="指银行类贷款(除房贷/车贷/信用卡，有详细流程)，单位元，如 8000">
+	                    </div>
+	                </div>
+	                
+	                <div class="form-group">
+	                    <label for="other_loan_return" class="col-sm-3 control-label">月供多少</label>
+	                    <div class="col-sm-6">
+	                       	<input type="text" class="form-control" id="other_loan_return" placeholder="单位元，如 600">
+	                    </div>
+	                </div>
+	                
+	                <div class="form-group">
+	                    <label for="other_loan_month" class="col-sm-3 control-label">已还时间</label>
+	                    <div class="col-sm-6">
+	                       	<input type="text" class="form-control" id="other_loan_month" placeholder="单位月，如 7">
+	                    </div>
+	                </div>
+	                
+	                <div class="form-group">
+	                    <label for="other_loan_company" class="col-sm-3 control-label">贷款银行名称</label>
+	                    <div class="col-sm-6">
+	                       	<input type="text" class="form-control" id="other_loan_company" placeholder="如 建设银行">
+	                    </div>
+	                </div>
+	                
+	                <br />	                
+                </div>
+                
+                <div class="form-group">
+                    <label for="applied_money" class="col-sm-2 control-label">本次申请金额</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" id="applied_money" name="applied_money" placeholder="单位元，如 500000">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="applied_month" class="col-sm-2 control-label">预计还款期限</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" id="applied_month" name="applied_month" placeholder="单位月，如 36">
+                    </div>
+                </div>
+                
+                <div class="form-group" style="margin-bottom: 0px">
+	                    <label class="col-sm-2 control-label">本次贷款用途</label>
+	                    <div class="col-sm-6 btn-group dropup">
+	                    	<select class="form-control">
+	                   	   		<option>--选择贷款用途--</option>
+								<option>装修</option>
+								<option>结婚</option>
+							  	<option>旅游</option>
+							  	<option>培训</option>
+							  	<option>购物</option>
+							  	<option>其他</option>
+							</select>
+	                    </div>
+	                </div>
+                
+                <br />
+                <div class="form-group" style="margin-bottom: 50px">
+                <label for="nickName" class="col-sm-2 control-label"></label>
+                    <div class="col-sm-6">
+                        <button type="submit" class="btn btn-primary col-sm-2">提交</button>
+                    </div>
+                </div>
+                
+			</form>
+		</div>
+		<div class="col-md-3"></div>
+	</div>
+</div>
+</body>
+<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="js/bootstrap-3.3.2/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/birthdays.js"></script>
+<script type="text/javascript" src="js/jquery.validate.min.js"></script>
+<script type="text/javascript">
+$("#form1").validate({
+	rules: {
+        real_name: {
+            required: true,
+            minlength: 2
+        },
+        phone: {
+            required: true,
+            number: true,
+            minlength: 11
+        },
+    },
+    messages: {
+    	real_name: 'required',
+        phone: 'required',
+        real_name: {
+            required: "*请输入昵称",
+            minlength: "*昵称至少2个字符"
+        },
+        phone: {
+            required: "*请输入手机号",
+            number: '*手机号必须为数字',
+            minlength: "*电话号码至少11位"
+        },
+    }
+});
+
+function creditCard(v){
+	if(v==1) {
+		document.getElementById("card_div").style.display="inherit";
+	} else {
+		document.getElementById("card_div").style.display="none";
+	}           			
+} 
+
+function isHouse(v) {
+	if(v==1) {
+		document.getElementById("house_div").style.display="inherit";
+	} else {
+		document.getElementById("house_div").style.display="none";
+	}
+}
+
+function isWork(v){
+	if(v==2) {
+		document.getElementById("work_div").style.display="inherit";
+		document.getElementById("company_div").style.display="none";
+	} else if(v==1) {
+		document.getElementById("work_div").style.display="none";
+		document.getElementById("company_div").style.display="inherit";
+	} else {
+		document.getElementById("work_div").style.display="none";
+		document.getElementById("company_div").style.display="none";
+	}
+}
+
+function isDebthouse(v) {
+	if(v==1) {
+		document.getElementById("house_debt_div").style.display="inherit";
+		document.getElementById("house_mortgage_div").style.display="none";
+	} else {
+		document.getElementById("house_mortgage_div").style.display="inherit";
+		document.getElementById("house_debt_div").style.display="none";
+	}
+}
+
+function isHasCar(v) {
+	if(v==1) {
+		document.getElementById("car_div").style.display="inherit";
+	} else {
+		document.getElementById("car_div").style.display="none";
+	}
+}
+
+function isDebtCar(v) {
+	if(v==1) {
+		document.getElementById("car_debt_div").style.display="inherit";
+		document.getElementById("car_mortgage_div").style.display="none";
+	} else {
+		document.getElementById("car_mortgage_div").style.display="inherit";
+		document.getElementById("car_debt_div").style.display="none";
+	}
+}
+
+function hasLoan(v) {
+	if(v==1) {
+		document.getElementById("loan_div").style.display="inherit";
+	} else {
+		document.getElementById("loan_div").style.display="none";
+	}
+}
+
+function ssFund(v) {
+	if(v==1) {
+		document.getElementById("ss_fund_div").style.display="inherit";
+	} else {
+		document.getElementById("ss_fund_div").style.display="none";
+	}
+}
+
+function cardDebt(v) {
+	if(v==1) {
+		document.getElementById("card_debt_div").style.display="inherit";
+	} else {
+		document.getElementById("card_debt_div").style.display="none";
+	}
+}
+
+function houseMortgage(v) {
+	if(v==1) {
+		document.getElementById("house_mortgage_info_div").style.display="inherit";
+	} else {
+		document.getElementById("house_mortgage_info_div").style.display="none";
+	}
+}
+
+function carMortgage(v) {
+	if(v==1) {
+		document.getElementById("car_mortgage_info_div").style.display="inherit";
+	} else {
+		document.getElementById("car_mortgage_info_div").style.display="none";
+	}
+}
+
+function consultLoan(v) {
+	if(v==1) {
+		document.getElementById("consult_loan_div").style.display="inherit";
+	} else {
+		document.getElementById("consult_loan_div").style.display="none";
+	}
+}
+</script>
+</html>

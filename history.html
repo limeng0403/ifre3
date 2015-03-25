@@ -1,0 +1,198 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>IFRE-提交历史</title>
+<link rel="shortcut icon" href="img/web_logo.png" type="image/x-icon">
+<link rel="apple-touch-icon" href="img/web_logo.png">
+<link type="text/css" rel="stylesheet" href="js/bootstrap-3.3.2/css/bootstrap.min.css" />
+</head>
+<style type="text/css">
+    .navbar-inverse {
+        background: #3b5998;
+    }
+
+    .navbar {
+        min-height: inherit;
+    }
+
+    .nav a {
+        color: #fefefe;
+        font-weight: bolder;
+    }
+
+    .nav li a:hover {
+        background: none;
+    }
+</style>
+<body>
+<div class="row">
+	<div class="col-md-3"></div>
+	<div class="col-md-3">
+		<a href="index.html">
+			<img src="img/logo.png" height="52px">
+		</a>
+	</div >
+	<div class="col-md-3 header-top" style="text-align:right;">
+		<div style="padding:10px 0;">
+		    <a href="login.html" class="btn btn-warning">登录</a>
+		    <a href="register.html" class="btn btn-info">注册</a>
+		</div>
+	</div>
+	<div class="col-md-3"></div>
+</div>
+
+<div class="row">
+	<div class="col-md-12 navbar navbar-inverse">
+		<div class="container-fluid">
+			<div class="col-md-3"></div>
+			<div class="col-md-6" id="">
+				<ul id="action" class="nav nav-pills" role="tablist">
+					<li id="index" role="presentation"><a href="index.html" onclick="click('index')">首页</a></li>
+					<li role="presentation"><a href="hello.html">评分</a></li>
+					<li role="presentation" class="active"><a href="history.html">提交历史</a></li>
+					<li role="presentation"><a href="record.html">评分记录</a></li>		
+				</ul>
+			</div>
+			<div class="col-md-3"></div>
+		</div>
+	</div>
+</div>
+
+<div class="row" id="search">
+	<div class="col-lg-3"></div>
+	<div class="col-lg-4">
+		<form method="post" action="javascript:void(0)">
+			<div class="input-group" id="">
+				<span class="input-group-btn"><a href="javascript:void(0)" class="btn btn-primary">所有</a></span>
+				<input type="text" class="form-control" placeholder="请输入关键字" id="usr_code" name="usr_code">
+				<span class="input-group-btn"><input class="btn btn-default" type="submit" value="搜索" /></span>				
+			</div>
+		</form>
+	</div>	
+	<div class="col-lg-1 btn-group">
+  		<button class="btn btn-primary dropdown-toggle" type="button" id="sorting" data-toggle="dropdown" aria-expanded="false">
+  			排序（默认）
+			<span class="caret"></span>
+  		</button>
+		<ul class="dropdown-menu" role="menu">
+		    <li><a href="javascript:void(0)" onclick="sorting('排序（默认）')">默认</a></li>
+		    <li><a href="javascript:void(0)" onclick="sorting('排序（时间降序）')">时间降序</a></li>
+		    <li><a href="javascript:void(0)" onclick="sorting('排序（时间升序）')">时间升序</a></li>
+		    <li><a href="javascript:void(0)" onclick="sorting('排序（已完成）')">已完成</a></li>
+		    <li><a href="javascript:void(0)" onclick="sorting('排序（正在解析）')">正在解析</a></li>
+		</ul>
+	</div> 
+	<div class="col-lg-1 btn-group">
+		<a href="upload.html"><button class="btn btn-warning">上传资料</button></a>
+	</div>	
+    <div class="col-lg-3"></div>
+</div>
+
+<br />
+
+<div class="row">
+	<div class="col-md-3"></div>
+    <div class="col-md-6">  	
+		<table class="table table-condensed table-striped">
+			<thead>
+			<tr>
+				<th>提交时间</th>
+				<th>文件名称</th>
+                <th>数量</th>
+                <th>进度</th>
+                <th>操作</th>
+			</tr>
+			</thead>
+            <tbody id="history_list">			
+			<tr>
+			<td>2014-01-02</td>
+    		<td>好贷用户表.xlsx</td>
+    		<td>2/td>                
+    		<td>正在解析中</td>
+    		<td>等待</td>
+    		
+			</td>			
+	        </tr>
+	  		<tr>
+			<td>2014-01-02</td>
+    		<td>好贷用户表.xlsx</td>
+    		<td>2/td>                
+    		<td>已完成</td>
+    		<td>
+			<a href="javascript:void(0)">下载&nbsp;&nbsp;&nbsp;</a>
+			<a href="record.html" target="_blank">查看</a>
+            </td>		
+	        </tr>
+            <tr>
+			<td>2014-01-02</td>
+    		<td>好贷用户表.xlsx</td>
+    		<td>2/td>                
+    		<td>已完成</td>
+    		<td>
+			<a href="javascript:void(0)">下载&nbsp;&nbsp;&nbsp;</a>
+			<a href="record.html" target="_blank">查看</a>
+            </td>		
+	        </tr>
+            <tr>
+			<td>2014-01-02</td>
+    		<td>好贷用户表.xlsx</td>
+    		<td>2/td>                
+    		<td>正在解析中</td>
+    		<td>等待</td>		
+	        </tr>
+            <tr>
+			<td>2014-01-02</td>
+    		<td>好贷用户表.xlsx</td>
+    		<td>2/td>                
+    		<td>已完成</td>
+    		<td>
+			<a href="javascript:void(0)">下载&nbsp;&nbsp;&nbsp;</a>
+			<a href="record.html" target="_blank">查看</a>
+            </td>			
+	        </tr>
+            <tr>
+			<td>2014-01-02</td>
+    		<td>好贷用户表.xlsx</td>
+    		<td>2/td>                
+    		<td>正在解析中</td>
+    		<td>等待</td>		
+	        </tr>	
+			</tbody>
+		</table>
+		
+		<label class="text-center">亲，您还没有上传哦！<a href="upload.html">上传用户资料</a></label>
+       
+		<nav>
+			<ul class="pagination">
+       			<li>
+       				<a href="#" aria-label="Previous">
+       					<span aria-hidden="true">&laquo;</span>
+       				</a>
+       			</li>
+       			<li class="active"><a href="#">1</a></li>
+       			<li><a href="#">2</a></li>
+       			<li><a href="#">3</a></li>
+       			<li><a href="#">4</a></li>
+       			<li><a href="#">5</a></li>
+       			<li>
+       				<a href="#" aria-label="Next">
+        				<span aria-hidden="true">&raquo;</span>
+     				</a>
+       			</li>
+       		</ul>
+		</nav>
+    </div>
+    <div class="col-md-3"></div>
+</div>
+</body>
+<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="js/bootstrap-3.3.2/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+function sorting(sorting){
+	document.getElementById("sorting").innerHTML = sorting+'<span class="caret"></span>';
+}
+
+
+</script>
+</html>
